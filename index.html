@@ -6,7 +6,18 @@
 </head>
 <body ng-app="Greet">
 	<div ng-controller="GreetController">
-		<h2>Welcome {{greetings.user}}</h2>	
+		<div ng-init="names = [{firstname: 'Sanil', lastname:'Nakarmi'}
+		, {firstname:Trimik, lastname:Maharjan},
+		{firstname:Sanil, lastname:Nakarmi}
+		]">
+			
+		</div>
+
+		<ol>
+			<li ng-repeat = 'name in names'>
+				{{'FirstName:' + name.firstname + ', LastName: ' + name.lastname}}
+			</li>
+		</ol>
 	</div>
 
 	<script type="text/javascript">
