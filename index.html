@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Js</title>
+	<script src="assets/js/angular.min.js"></script>
+</head>
+<body ng-app="Greet">
+	<div ng-controller="GreetController">
+		<h2>Welcome {{greetings.user}}</h2>	
+	</div>
+
+	<script type="text/javascript">
+		angular.module('Greet', [])
+
+		.controller('GreetController', function($scope) {
+			$scope.greetings = {};
+			$scope.greetings.user = 'user';
+		});
+	</script>
+</body>
+</html>
