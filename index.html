@@ -4,29 +4,23 @@
 	<title>Angular Js</title>
 	<script src="assets/js/angular.min.js"></script>
 </head>
-<body ng-app="Greet">
-	<div ng-controller="GreetController">
-		<div ng-init="names = [{firstname: 'Sanil', lastname:'Nakarmi'}
-		, {firstname:Trimik, lastname:Maharjan},
-		{firstname:Sanil, lastname:Nakarmi}
-		]">
-			
-		</div>
 
-		<ol>
-			<li ng-repeat = 'name in names'>
-				{{'FirstName:' + name.firstname + ', LastName: ' + name.lastname}}
-			</li>
-		</ol>
-	</div>
+<body>
+	<div ng-app="myApp" ng-controller="myCtrl"> 
 
-	<script type="text/javascript">
-		angular.module('Greet', [])
+<p>Today's welcome message is:</p>
+<h1>{{myWelcome}}</h1>
 
-		.controller('GreetController', function($scope) {
-			$scope.greetings = {};
-			$scope.greetings.user = 'user';
-		});
-	</script>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get("welcome.htm")
+    .then(function(response) {
+        $scope.myWelcome = response.data;
+    });
+});
+</script>
 </body>
 </html>
